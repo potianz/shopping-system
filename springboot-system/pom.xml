@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+<!-- $Id: pom.xml 642118 2008-03-28 08:04:16Z reinhard $ -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <packaging>war</packaging>
+  <name>springboot-system</name>
+  <groupId>org.example</groupId>
+  <artifactId>springboot-system</artifactId>
+  <version>1.0-SNAPSHOT</version>
+    <properties>
+      <java.version>1.8</java.version>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+      <spring-boot.version>2.1.18.RELEASE</spring-boot.version>
+<!--      <commons.io.version>2.4</commons.io.version>-->
+<!--      <jjwt.version>0.9.1</jjwt.version>-->
+<!--      <junit.version>4.12</junit.version>-->
+    </properties>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.8.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+
+    <dependencies>
+<!--      这个依赖是处理Excel表格的依赖-->
+      <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>3.17</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>1.2.73</version>
+      </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.2</version>
+        </dependency>
+
+        <!--      <dependency>-->
+<!--        <groupId>com.baomidou</groupId>-->
+<!--        <artifactId>mybatis-plus-boot-starter</artifactId>-->
+<!--        <version>3.2.0</version>-->
+<!--      </dependency>-->
+      <!--        加密数据依赖-->
+      <dependency>
+        <groupId>com.github.ulisesbocchio</groupId>
+        <artifactId>jasypt-spring-boot-starter</artifactId>
+        <version>2.0.0</version>
+      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>org.springframework.boot</groupId>-->
+<!--        <artifactId>spring-boot-devtools</artifactId>-->
+<!--        <version>2.1.2.RELEASE</version>-->
+<!--&lt;!&ndash;        <scope>runtime</scope>&ndash;&gt;-->
+<!--&lt;!&ndash;        <optional>true</optional>&ndash;&gt;-->
+<!--      </dependency>-->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-configuration-processor</artifactId>
+        <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt</artifactId>
+        <version>0.9.1</version>
+      </dependency>
+
+
+      <!-- jwt支持 -->
+      <dependency>
+        <groupId>com.auth0</groupId>
+        <artifactId>java-jwt</artifactId>
+        <version>3.4.0</version>
+      </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-core</artifactId>-->
+<!--            <version>3.1.2</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.1.2</version>
+        </dependency>
+        <!-- MySql驱动 -->
+      <!--        mysql jdbc驱动-->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.18</version>
+        <scope>true</scope>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.shenjia/MyBatisX -->
+      <dependency>
+        <groupId>org.shenjia</groupId>
+        <artifactId>MyBatisX</artifactId>
+        <version>1.3.6</version>
+        <type>pom</type>
+      </dependency>
+<!--        学习的工具类-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-extension</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-extension</artifactId>
+            <version>3.1.2</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-dependencies</artifactId>
+          <version>${spring-boot.version}</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+
+        <!-- jwt支持 -->
+
+          <!--JWT-->
+        <dependency>
+          <groupId>cn.ideamake</groupId>
+          <artifactId>common</artifactId>
+          <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+          <groupId>io.jsonwebtoken</groupId>
+          <artifactId>jjwt</artifactId>
+          <version>0.9.1</version>
+        </dependency>
+        <!-- Uncomment this next dependency if you are using JDK 10 or earlier and you also want to use
+             RSASSA-PSS (PS256, PS384, PS512) algorithms.  JDK 11 or later does not require it for those algorithms:
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.60</version>
+            <scope>runtime</scope>
+        </dependency>
+        -->
+
+
+        <!-- POI(operate excel) start -->
+
+        <!-- the version of the following POI packages must be consistent -->
+        <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi</artifactId>
+          <version>3.17</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+        <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi-ooxml</artifactId>
+          <version>3.17</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+        <!-- the dependent jar package to create .xlsx file  -->
+        <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi-ooxml-schemas</artifactId>
+          <version>3.17</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans -->
+        <dependency>
+          <groupId>org.apache.xmlbeans</groupId>
+          <artifactId>xmlbeans</artifactId>
+          <version>2.6.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-collections/commons-collections -->
+        <dependency>
+          <groupId>commons-collections</groupId>
+          <artifactId>commons-collections</artifactId>
+          <version>3.2.2</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+        <dependency>
+          <groupId>dom4j</groupId>
+          <artifactId>dom4j</artifactId>
+          <version>1.6.1</version>
+        </dependency>
+
+        <!-- POI end -->
+
+<!--        JAR packages that need to be dependent-->
+      </dependencies>
+    </dependencyManagement>
+
+    <build>
+      <plugins>
+<!--        <plugin>-->
+<!--          <plugin>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--          </plugin>-->
+<!--        </plugin>-->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.1</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>2.1.8.RELEASE</version>
+          <configuration>
+            <mainClass>com.sxlg.DemoApplication</mainClass>
+          </configuration>
+          <executions>
+            <execution>
+              <id>repackage</id>
+              <goals>
+                <goal>repackage</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </build>
+
+  </project>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<project xmlns="http://maven.apache.org/POM/4.0.0"-->
+<!--         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">-->
+<!--<modelVersion>4.0.0</modelVersion>-->
+<!--<groupId>com.sxlg</groupId>-->
+<!--<artifactId>springboot-system</artifactId>-->
+<!--<version>0.0.1-SNAPSHOT</version>-->
+<!--<name>demo</name>-->
+<!--<description>Demo project for Spring Boot</description>-->
+
+<!--<properties>-->
+<!--  <java.version>1.8</java.version>-->
+<!--  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+<!--  <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>-->
+<!--  <spring-boot.version>2.1.18.RELEASE</spring-boot.version>-->
+<!--</properties>-->
+
+<!--<dependencies>-->
+<!--  <dependency>-->
+<!--    <groupId>org.springframework.boot</groupId>-->
+<!--    <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+<!--  </dependency>-->
+<!--  <dependency>-->
+<!--    <groupId>org.springframework.boot</groupId>-->
+<!--    <artifactId>spring-boot-starter-web</artifactId>-->
+<!--  </dependency>-->
+<!--  <dependency>-->
+<!--    <groupId>com.baomidou</groupId>-->
+<!--    <artifactId>mybatis-plus-boot-starter</artifactId>-->
+<!--    <version>3.2.0</version>-->
+<!--  </dependency>-->
+<!--  &lt;!&ndash;        加密数据依赖&ndash;&gt;-->
+<!--  <dependency>-->
+<!--    <groupId>com.github.ulisesbocchio</groupId>-->
+<!--    <artifactId>jasypt-spring-boot-starter</artifactId>-->
+<!--    <version>2.0.0</version>-->
+<!--  </dependency>-->
+<!--  <dependency>-->
+<!--    <groupId>org.springframework.boot</groupId>-->
+<!--    <artifactId>spring-boot-devtools</artifactId>-->
+<!--    <scope>runtime</scope>-->
+<!--    <optional>true</optional>-->
+<!--  </dependency>-->
+<!--  <dependency>-->
+<!--    <groupId>org.springframework.boot</groupId>-->
+<!--    <artifactId>spring-boot-configuration-processor</artifactId>-->
+<!--    <optional>true</optional>-->
+<!--  </dependency>-->
+<!--  <dependency>-->
+<!--    <groupId>org.projectlombok</groupId>-->
+<!--    <artifactId>lombok</artifactId>-->
+<!--    <optional>true</optional>-->
+<!--  </dependency>-->
+<!--  <dependency>-->
+<!--    <groupId>org.springframework.boot</groupId>-->
+<!--    <artifactId>spring-boot-starter-test</artifactId>-->
+<!--    <scope>test</scope>-->
+<!--  </dependency>-->
+<!--  &lt;!&ndash; MySql驱动 &ndash;&gt;-->
+<!--  &lt;!&ndash;        mysql jdbc驱动&ndash;&gt;-->
+<!--  <dependency>-->
+<!--    <groupId>mysql</groupId>-->
+<!--    <artifactId>mysql-connector-java</artifactId>-->
+<!--    <version>5.1.42</version>-->
+<!--    <scope>true</scope>-->
+<!--  </dependency>-->
+<!--  &lt;!&ndash; https://mvnrepository.com/artifact/org.shenjia/MyBatisX &ndash;&gt;-->
+<!--  <dependency>-->
+<!--    <groupId>org.shenjia</groupId>-->
+<!--    <artifactId>MyBatisX</artifactId>-->
+<!--    <version>1.3.6</version>-->
+<!--    <type>pom</type>-->
+<!--  </dependency>-->
+<!--</dependencies>-->
+
+<!--<dependencyManagement>-->
+<!--  <dependencies>-->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.boot</groupId>-->
+<!--      <artifactId>spring-boot-dependencies</artifactId>-->
+<!--      <version>${spring-boot.version}</version>-->
+<!--      <type>pom</type>-->
+<!--      <scope>import</scope>-->
+<!--    </dependency>-->
+<!--  </dependencies>-->
+<!--</dependencyManagement>-->
+
+<!--<build>-->
+<!--  <plugins>-->
+<!--    <plugin>-->
+<!--      <groupId>org.apache.maven.plugins</groupId>-->
+<!--      <artifactId>maven-compiler-plugin</artifactId>-->
+<!--      <version>3.8.1</version>-->
+<!--      <configuration>-->
+<!--        <source>1.8</source>-->
+<!--        <target>1.8</target>-->
+<!--        <encoding>UTF-8</encoding>-->
+<!--      </configuration>-->
+<!--    </plugin>-->
+<!--    <plugin>-->
+<!--      <groupId>org.springframework.boot</groupId>-->
+<!--      <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--      <version>2.1.18.RELEASE</version>-->
+<!--      <configuration>-->
+<!--        <mainClass>com.sxlg.DemoApplication</mainClass>-->
+<!--      </configuration>-->
+<!--      <executions>-->
+<!--        <execution>-->
+<!--          <id>repackage</id>-->
+<!--          <goals>-->
+<!--            <goal>repackage</goal>-->
+<!--          </goals>-->
+<!--        </execution>-->
+<!--      </executions>-->
+<!--    </plugin>-->
+<!--  </plugins>-->
+<!--</build>-->
+
+<!--</project>-->
+
+
+
+

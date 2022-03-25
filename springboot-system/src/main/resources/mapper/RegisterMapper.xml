@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yuhao.mapper.RegisterMapper">
+    <insert id="insertUserMsg">
+        insert into
+        `user_msg`
+        (`rid`,`user_nickname`,`user_sex`,`user_emil`)
+        values
+        (#{msg.rid},#{msg.userNickname},#{msg.userSex},#{msg.userEmil})
+    </insert>
+</mapper>
