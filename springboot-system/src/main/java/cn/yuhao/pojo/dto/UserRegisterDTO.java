@@ -21,8 +21,6 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-
-
 public class UserRegisterDTO {
     /**
      * 用户昵称
