@@ -1,0 +1,28 @@
+server:
+  port: 8888
+  ssl:
+    enabled: true
+    key-store: classpath:tomcat_https.keystore
+    key-store-password: 123456
+    key-store-type: JKS
+    key-alias: tomcat_https
+    key-password: 123456
+spring:
+  mail:
+    host: smtp.qq.com
+    username: 1730016757@qq.com
+    password: tfyzhcdmstlwbcef
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable:
+              true
+    default-encoding: UTF-8
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/shopping_system?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: zhangyuhao
+    driverClassName: com.mysql.jdbc.Driver
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*Mapper.xml

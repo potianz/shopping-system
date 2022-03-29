@@ -1,9 +1,10 @@
 package cn.yuhao.interceptor;
 
 import cn.yuhao.comment.PassToken;
+import cn.yuhao.pojo.dto.UserLoginDTO;
 import cn.yuhao.uutil.User;
 import cn.yuhao.comment.UserLoginToken;
-import cn.yuhao.uutil.UserService;
+import cn.yuhao.service.UserService;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -64,12 +65,12 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                     throw new RuntimeException("401");
                 }
                 //通过用户的id来查找用户，如果用户不存在则说明token是伪造的
-                User user = userService.findUserById(userId);
+                UserLoginDTO user = userService.getUserById(userId);
                 if (user == null) {
                     throw new RuntimeException("用户不存在，请重新登录");
                 }
                 // 验证 token
-                JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(user.getPassword())).build();
+                JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(user.getUserPassword())).build();
                 try {
                     jwtVerifier.verify(token);
                 } catch (JWTVerificationException e) {

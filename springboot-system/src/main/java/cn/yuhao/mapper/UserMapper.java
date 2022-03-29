@@ -1,6 +1,7 @@
-package cn.yuhao.uutil;
+package cn.yuhao.mapper;
 
 import cn.yuhao.pojo.dto.UserRegisterDTO;
+import cn.yuhao.pojo.entity.Userentity;
 import cn.yuhao.uutil.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Repository;
  */
 @Mapper
 @Repository
-public interface UserMapper extends BaseMapper<UserRegisterDTO> {
+public interface UserMapper extends BaseMapper<Userentity> {
     @Select("select id,name,password from user where name=#{name} ")
     User findByUsername(String username);
     @Select("select id,name,password from user where name=#{name} ")

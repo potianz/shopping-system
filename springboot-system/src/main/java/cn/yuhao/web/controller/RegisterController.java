@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import javax.xml.transform.Result;
+import cn.yuhao.common.Result;
 
 
 /**
@@ -35,14 +35,17 @@ public class RegisterController {
 
     @Autowired
     private MailService mailService;
+
     @PostMapping("/user")
     @PassToken
-    public String registerUser(@Valid UserRegisterDTO registerDTO, HttpServletRequest request){
+    public Result registerUser(@Valid UserRegisterDTO registerDTO, HttpServletRequest request){
         log.info("registerDTO:{}",registerDTO.toString());
         boolean message = registerService.registerUser(registerDTO,request);
-        if(message)
-        return  "注册成功";
-        return "注册失败";
+        if(message){
+            //应该跳转到登录页面或者直接登录
+            return  Result.ok("注册成功");
+        }
+        return Result.error("注册失败！");
     }
 
     @PostMapping("/sendEmail")
